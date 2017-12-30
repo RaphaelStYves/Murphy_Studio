@@ -11,13 +11,11 @@ import javafx.scene.control.Button;
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Chords extends Controller implements Initializable {
 
+    public Button playTest;
     private ChordModel chordModel;
     private MainModel model;
 
@@ -59,19 +57,39 @@ public class Chords extends Controller implements Initializable {
         buttonToChord.put(chordBm, chordModel.getChord("Bm"));
 
         for (Map.Entry<Button, Accord> entry: buttonToChord.entrySet())
-        {
-            entry.getKey().setOnMouseClicked(event -> {
-                playChord(entry.getValue());
-            });
-        }
+            entry.getKey().setOnMouseClicked(event -> playChord(entry.getValue()));
+
+        playTest.setOnMouseClicked(event -> {
+            Accord[] test = {
+                    chordModel.getChord("C").getWithScale(4),
+                    chordModel.getChord("C").getWithScale(4),
+                    chordModel.getChord("C").getWithScale(5),
+                    chordModel.getChord("C").getWithScale(5),
+                    chordModel.getChord("Am").getWithScale(3),
+                    chordModel.getChord("Am").getWithScale(3),
+                    chordModel.getChord("Am").getWithScale(4),
+                    chordModel.getChord("Am").getWithScale(4),
+                    chordModel.getChord("F").getWithScale(3),
+                    chordModel.getChord("F").getWithScale(3),
+                    chordModel.getChord("F").getWithScale(4),
+                    chordModel.getChord("F").getWithScale(4),
+                    chordModel.getChord("G").getWithScale(3),
+                    chordModel.getChord("G").getWithScale(3),
+                    chordModel.getChord("G").getWithScale(4),
+                    chordModel.getChord("G").getWithScale(4),
+            };
+            try {
+                model.player.createTrackFromChords(test);
+            } catch (InvalidMidiDataException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     private void playChord(Accord chord)
     {
-        Accord newChord = chord.getWithScale(1);
-        System.out.println(newChord.getName() + " (" + newChord.getShortName() + ") : " + Arrays.toString(newChord.getNotes()));
         try {
-            this.model.player.playChord(newChord.getWithScale(4), true);
+            this.model.player.playChord(chord, true);
         } catch (InvalidMidiDataException e) {
             e.printStackTrace();
         }
@@ -82,6 +100,10 @@ public class Chords extends Controller implements Initializable {
         this.chordModel = model.chordModel;
         init();
     }
+
+    /* TODO : - Créer une séquence midi "manuellement" et la jouer.
+                Ca permet de créer des partitions !
+     */
 
 
 }

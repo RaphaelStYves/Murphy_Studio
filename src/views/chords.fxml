@@ -38,6 +38,8 @@
                 <Label alignment="CENTER" layoutX="578.0" layoutY="35.0" prefHeight="17.0" prefWidth="78.0" text="Si" textAlignment="CENTER" textFill="WHITE"><font><Font name="Segoe UI" size="12.0" /></font></Label>
                 <Button fx:id="chordB" layoutX="578.0" layoutY="60.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0" text="B" />
                 <Button fx:id="chordBm" layoutX="617.0" layoutY="60.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0" text="Bm" />
+
+                <Button layoutX="215.0" layoutY="119.0" mnemonicParsing="false" text="play" fx:id="playTest"/>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" />
         </items>
