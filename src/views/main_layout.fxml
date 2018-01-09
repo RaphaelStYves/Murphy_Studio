@@ -10,12 +10,12 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" styleClass="main" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
+<BorderPane id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" styleClass="main" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
    <top>
       <BorderPane id="top_border_pane" BorderPane.alignment="CENTER">
          <top>
@@ -77,14 +77,13 @@
       </HBox>
    </bottom>
    <center>
-      <SplitPane fx:id="split_workspace" dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
-        <items>
-          <AnchorPane fx:id="mainContainer" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: blue;" />
-          <AnchorPane fx:id="secondContainer" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: red;" />
-        </items>
+      <SplitPane fx:id="split_workspace" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
          </BorderPane.margin>
+         <items>
+            <Pane fx:id="mainContainer" prefHeight="200.0" prefWidth="200.0" />
+         </items>
       </SplitPane>
    </center>
 </BorderPane>

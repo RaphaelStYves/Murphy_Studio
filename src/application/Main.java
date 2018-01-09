@@ -24,7 +24,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(scene);
-        primaryStage.setMinWidth(root.minWidth(-1));
+        primaryStage.setMinWidth(895);
         primaryStage.setMinHeight(root.minHeight(-1));
         primaryStage.setX((bounds.getWidth() - primaryStage.getWidth()) / 2);
         primaryStage.setY((bounds.getHeight() - primaryStage.getHeight()) / 4);

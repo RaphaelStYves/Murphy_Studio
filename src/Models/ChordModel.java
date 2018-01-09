@@ -29,6 +29,7 @@ public class ChordModel {
 
     public ChordModel()
     {
+        /*
         chords.add(new Objects.Accord("Do Majeur", "C", new int[]{0,4,7}));
         chords.add(new Objects.Accord("Ré Majeur", "D", new int[]{2,6,9}));
         chords.add(new Objects.Accord("Mi Majeur", "E", new int[]{4,8,11}));
@@ -44,6 +45,14 @@ public class ChordModel {
         chords.add(new Objects.Accord("Sol Mineur", "Gm", new int[]{7,10,14}));
         chords.add(new Objects.Accord("La Mineur", "Am", new int[]{9,12,16}));
         chords.add(new Objects.Accord("Si Mineur", "Bm", new int[]{11,14,18}));
+        */
+        chords.add(new Accord("Do", "C", new int[0]));
+        chords.add(new Accord("Ré", "D", new int[2]));
+        chords.add(new Accord("Mi", "E", new int[4]));
+        chords.add(new Accord("Fa", "F", new int[5]));
+        chords.add(new Accord("Sol", "G", new int[7]));
+        chords.add(new Accord("La", "A", new int[9]));
+        chords.add(new Accord("Si", "B", new int[11]));
     }
 
     public Accord getChord(String shortName)
@@ -52,7 +61,7 @@ public class ChordModel {
         return null;
     }
 
-    Objects.Accord getChordScale(String shortName, int scale)
+    public Accord getChordScale(String shortName, int scale)
     {
         Objects.Accord chord = getChord(shortName);
         return ( chord == null ) ? null : chord.getWithScale(scale);

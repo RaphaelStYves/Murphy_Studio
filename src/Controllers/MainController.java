@@ -52,8 +52,6 @@ public class MainController extends Controller implements Initializable {
 
     /* Container */
     @FXML
-    private BorderPane workspace_pane;
-    @FXML
     private Pane mainContainer;
 
     @Override
@@ -82,7 +80,7 @@ public class MainController extends Controller implements Initializable {
 
         /* On charge la vue par default (track_layout) */
         try {
-            loadView("piste_layout.fxml", mainContainer);
+            loadView("chords.fxml", mainContainer);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,7 +92,7 @@ public class MainController extends Controller implements Initializable {
 
         sequencer_tempo.textProperty().addListener((observable, oldValue, newValue) -> {
             // Only numeric
-            if ( newValue.isEmpty() || Objects.equals(newValue, "")) return;
+            //if ( newValue.isEmpty() || Objects.equals(newValue, "")) return;
             if ( !newValue.matches("\\d") )
             {
                 String value = newValue.replaceAll("[^\\d]", "");
@@ -121,7 +119,7 @@ public class MainController extends Controller implements Initializable {
 
 
         /* On ajoute les différentes pages qu'on lie à chacun des buttons */
-        views.put(chordGridView, "chords.fxml");
+        //views.put(chordGridView, "chords.fxml");
 
         for (Map.Entry<Button, String> entry: views.entrySet())
         {
