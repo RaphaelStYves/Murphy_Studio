@@ -19,17 +19,6 @@ public class Chords extends Controller implements Initializable {
     private ChordModel chordModel;
     private MainModel model;
 
-    @FXML // Buttons d'accords
-    private Button chordC,chordCm,chordD,chordDm,chordE,chordEm,chordF,chordFm,chordG,chordGm,chordA,chordAm,chordB,chordBm;
-
-    @FXML
-    private Label chord0, chord1, chord2, chord3;
-
-    private HashMap<Button, Accord> buttonToChord = new HashMap<>();
-
-    private Accord[] chordsTest = new Accord[4];
-    private int ind = 0;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         /*
@@ -45,33 +34,6 @@ public class Chords extends Controller implements Initializable {
             model.player = new Player();
         } catch (MidiUnavailableException e) {
             e.printStackTrace();
-        }
-
-        buttonToChord.put(chordC, chordModel.getChord("C"));
-        buttonToChord.put(chordCm, chordModel.getChord("Cm"));
-        buttonToChord.put(chordD, chordModel.getChord("D"));
-        buttonToChord.put(chordDm, chordModel.getChord("Dm"));
-        buttonToChord.put(chordE, chordModel.getChord("E"));
-        buttonToChord.put(chordEm, chordModel.getChord("Em"));
-        buttonToChord.put(chordF, chordModel.getChord("F"));
-        buttonToChord.put(chordFm, chordModel.getChord("Fm"));
-        buttonToChord.put(chordG, chordModel.getChord("G"));
-        buttonToChord.put(chordGm, chordModel.getChord("Gm"));
-        buttonToChord.put(chordA, chordModel.getChord("A"));
-        buttonToChord.put(chordAm, chordModel.getChord("Am"));
-        buttonToChord.put(chordB, chordModel.getChord("B"));
-        buttonToChord.put(chordBm, chordModel.getChord("Bm"));
-
-        Label[] chordLabel = {chord0, chord1, chord2, chord3};
-
-        for (Map.Entry<Button, Accord> entry: buttonToChord.entrySet())
-        {
-            //entry.getKey().setOnMouseClicked(event -> playChord(entry.getValue()));
-            entry.getKey().setOnMouseClicked(event-> {
-                chordsTest[ind] = entry.getValue();
-                chordLabel[ind].setText(entry.getValue().getShortName());
-                ind = ( ind == 3 ? 0 : ind+1 );
-            });
         }
 
     }
