@@ -97,11 +97,10 @@ public class ChordMakerController extends Controller implements Initializable {
             button.setMinHeight(64);
             button.setPrefHeight(64);
             button.setMaxHeight(Integer.MAX_VALUE);
-//
+
             button.setMinWidth(32);
             button.setPrefWidth(128);
             button.setMaxWidth(Integer.MAX_VALUE);
-
 
             button.setToggleGroup(chordChordGroup);
             button.setOnMouseClicked(event -> {
@@ -256,6 +255,7 @@ public class ChordMakerController extends Controller implements Initializable {
             ColumnConstraints cc = new ColumnConstraints();
             cc.setHalignment(HPos.CENTER);
             cc.setPercentWidth(-1);
+            cc.setHgrow(Priority.SOMETIMES);
             this.chordGrid.getColumnConstraints().add(cc);
             System.out.println(i+" col "+cc.getPercentWidth());
         }
@@ -264,6 +264,7 @@ public class ChordMakerController extends Controller implements Initializable {
             RowConstraints rc = new RowConstraints();
             rc.setValignment(VPos.BOTTOM);
             rc.setPercentHeight(-1);
+            rc.setVgrow(Priority.NEVER);
             this.chordGrid.getRowConstraints().add(rc);
             System.out.println(i+" row "+rc.getPercentHeight());
         }
